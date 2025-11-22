@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Sets the character encoding of the document to UTF-8 -->
+    <meta charset="UTF-8" />
+
+    <!-- Ensures compatibility with Internet Explorer in Edge mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Makes the layout responsive on all devices by controlling viewport scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+      Primary meta tags
+    -->
+
+    <!-- Title shown in browser tabs and search engine results -->
+    <title>Autofix - Auto Maintenance & Repair Service</title>
+
+    <!-- Meta title for SEO and social preview -->
+    <meta name="title" content="Autofix - Auto Maintenance & Repair Service" />
+
+    <!-- 
+      Favicon (small icon shown in the browser tab)
+    -->
+    <!-- Loads the site's favicon from the local SVG file -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- 
+      Google fonts preconnect (speeds up font loading)
+    -->
+    <!-- Preconnect hint to Google's font server for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- Preconnect to the fonts content delivery network with crossorigin enabled -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Imports the selected Google Fonts: Chakra Petch and Mulish -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+      Material icon font (for Google Material Symbols)
+    -->
+    <!-- Loads Material Symbols Rounded icon font with custom weight/settings -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0"
+    />
+
+    <!-- 
+      Custom CSS link
+    -->
+    <!-- Loads the project's main stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+      Preload images (improves performance by loading important images early)
+    -->
+    <!-- Preloads the hero banner image for faster initial rendering -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
+
+    <!-- Preloads the hero background image -->
+    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+  </head>
+
+  <body>
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header">
+      <!-- Wraps the header content inside a container for proper layout -->
+      <div class="container">
+        <!-- Logo link that navigates to the top/home page -->
+        <a href="#" class="logo">
+          <!-- Logo image with defined width, height, and alt text -->
+          <img
+            src="./assets/images/logo.png"
+            width="128"
+            height="63"
+            alt="autofix home"
+          />
+        </a>
+
+        <!-- Navigation bar container with a custom data attribute for JS toggle -->
+        <nav class="navbar" data-navbar>
+          <!-- Unordered list containing all navigation links -->
+          <ul class="navbar-list">
+            <!-- Navigation item: Home -->
+            <li>
+              <a href="#" class="navbar-link">Home</a>
+            </li>
+
+            <!-- Navigation item: About -->
+            <li>
+              <a href="#" class="navbar-link">About</a>
+            </li>
+
+            <!-- Navigation item: Services -->
+            <li>
+              <a href="#" class="navbar-link">Services</a>
+            </li>
+
+            <!-- Navigation item: Projects -->
+            <li>
+              <a href="#" class="navbar-link">Projects</a>
+            </li>
+
+            <!-- Navigation item: Contact -->
+            <li>
+              <a href="#" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Call-to-action button leading to a quote form/page -->
+        <a href="#" class="btn btn-primary">
+          <!-- Text inside the button -->
+          <span class="span">Get a Quote</span>
+
+          <!-- Material icon showing an arrow pointing forward -->
+          <span class="material-symbols-rounded">arrow_forward</span>
+        </a>
+
+        <!-- Mobile navigation toggle button -->
+        <button
+          class="nav-toggle-btn"
+          aria-label="toggle menu"
+          data-nav-toggler
+        >
+          <!-- Three bars representing the mobile menu icon -->
+          <span class="nav-toggle-icon icon-1"></span>
+          <span class="nav-toggle-icon icon-2"></span>
+          <span class="nav-toggle-icon icon-3"></span>
+        </button>
+      </div>
+      <!-- End of container -->
+    </header>
+    <!-- End of header -->
+
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+        Section for the main hero banner of the website
+-->
+        <section
+          class="hero has-bg-image"
+          aria-label="home"
+          style="background-image: url('./assets/images/hero-bg.jpg')"
+        >
+          <div class="container">
+            <!-- Wraps hero content for proper layout and spacing -->
+
+            <div class="hero-content">
+              <!-- Left side content area of the hero section -->
+
+              <p class="section-subtitle :dark">
+                <!-- Subtitle with dark theme variation -->
+                We have talented engineers & mechanics
+              </p>
+
+              <h1 class="h1 section-title">
+                <!-- Main headline for the hero section -->
+                Auto Maintenance & Repair Service
+              </h1>
+
+              <p class="section-text">
+                <!-- Short hero description text -->
+                We provide reliable, high-quality auto maintenance and repair
+                services to keep your vehicle running smoothly, safely, and
+                efficiently.
+              </p>
+
+              <a href="#" class="btn">
+                <!-- Call-to-action button linking to services -->
+                <span class="span">Our Services</span>
+                <!-- Button label text -->
+
+                <!-- Forward arrow icon from Material Symbols -->
+                <span class="material-symbols-rounded">arrow_forward</span>
+              </a>
+            </div>
+            <!-- End of hero-content -->
+
+            <!-- Hero image container, using CSS variables for flexible dimensions -->
+            <figure class="hero-banner" style="--width: 1228; --height: 789">
+              <img
+                src="./assets/images/hero-banner.png"
+                width="1228"
+                height="789"
+                alt="red motor vehicle"
+                class="move-anim"
+              />
+            </figure>
+            <!-- End of hero-banner -->
+          </div>
+          <!-- End of container -->
+        </section>
+        <!-- End of HERO section -->
+
+        <!-- 
+  - #SERVICE
+  This section displays the list of vehicle services offered.
+-->
+        <section
+          class="section service has-bg-image"
+          aria-labelledby="service-label"
+          style="background-image: url('./assets/images/service-bg.jpg')"
+        >
+          <div class="container">
+            <!-- Centers and limits the width of the content -->
+
+            <!-- Section subtitle, styled for light background areas -->
+            <p class="section-subtitle :light" id="service-label">
+              Our services
+            </p>
+
+            <!-- Main heading of the service section -->
+            <h2 class="h2 section-title">
+              We Provide Great Services For your Vehicle
+            </h2>
+
+            <!-- List container holding all service cards -->
+            <ul class="service-list">
+              <!-- SERVICE ITEM 1 -->
+              <li>
+                <div class="service-card">
+                  <!-- Wrapper for each service item -->
+
+                  <figure class="card-icon">
+                    <!-- Icon container -->
+                    <img
+                      src="./assets/images/services-1.png"
+                      width="110"
+                      height="110"
+                      loading="lazy"
+                      alt="Engine Repair"
+                    />
+                  </figure>
+
+                  <h3 class="h3 card-title">Engine Repair</h3>
+                  <!-- Service title -->
+
+                  <!-- Short service description -->
+                  <p class="card-text">
+                    Expert diagnostics and fast engine fixes.
+                  </p>
+
+                  <!-- Link for more information -->
+                  <a href="#" class="btn-link">Read more</a>
+                </div>
+              </li>
+
+              <!-- SERVICE ITEM 2 -->
+              <li>
+                <div class="service-card">
+                  <figure class="card-icon">
+                    <img
+                      src="./assets/images/services-2.png"
+                      width="110"
+                      height="110"
+                      loading="lazy"
+                      alt="Brake Repair"
+                    />
+                  </figure>
+
+                  <h3 class="h3 card-title">Brake Repair</h3>
+
+                  <!-- Short service description -->
+                  <p class="card-text">
+                    Reliable brake service for safer driving.
+                  </p>
+
+                  <a href="#" class="btn-link">Read more</a>
+                </div>
+              </li>
+
+              <!-- SERVICE ITEM 3 -->
+              <li>
+                <div class="service-card">
+                  <figure class="card-icon">
+                    <img
+                      src="./assets/images/services-3.png"
+                      width="110"
+                      height="110"
+                      loading="lazy"
+                      alt="Tire Repair"
+                    />
+                  </figure>
+
+                  <h3 class="h3 card-title">Tire Repair</h3>
+
+                  <!-- Short service description -->
+                  <p class="card-text">Quick tire repair and replacement.</p>
+
+                  <a href="#" class="btn-link">Read more</a>
+                </div>
+              </li>
+
+              <!-- SERVICE ITEM 4 -->
+              <li>
+                <div class="service-card">
+                  <figure class="card-icon">
+                    <img
+                      src="./assets/images/services-4.png"
+                      width="110"
+                      height="110"
+                      loading="lazy"
+                      alt="Battery Repair"
+                    />
+                  </figure>
+
+                  <h3 class="h3 card-title">Battery Repair</h3>
+
+                  <!-- Short service description -->
+                  <p class="card-text">
+                    Efficient testing and battery solutions.
+                  </p>
+
+                  <a href="#" class="btn-link">Read more</a>
+                </div>
+              </li>
+
+              <!-- CENTER DECORATIVE BANNER -->
+              <li class="service-banner">
+                <!-- Larger image displayed between cards -->
+                <img
+                  src="./assets/images/services-5.png"
+                  width="646"
+                  height="380"
+                  loading="lazy"
+                  alt="Red Car"
+                  class="move-anim"
+                />
+              </li>
+
+              <!-- SERVICE ITEM 5 -->
+              <li>
+                <div class="service-card">
+                  <figure class="card-icon">
+                    <img
+                      src="./assets/images/services-6.png"
+                      width="110"
+                      height="110"
+                      loading="lazy"
+                      alt="Steering Repair"
+                    />
+                  </figure>
+
+                  <h3 class="h3 card-title">Steering Repair</h3>
+
+                  <!-- Short service description -->
+                  <p class="card-text">Smooth and precise steering repairs.</p>
+
+                  <a href="#" class="btn-link">Read more</a>
+                </div>
+              </li>
+            </ul>
+            <!-- End of service list -->
+
+            <!-- Button linking to view all offered services -->
+            <a href="#" class="btn">
+              <span class="span">View All Services</span>
+              <span class="material-symbols-rounded">arrow_forward</span>
+              <!-- Arrow icon -->
+            </a>
+          </div>
+          <!-- End of container -->
+        </section>
+        <!-- End of service section -->
+
+        <!-- 
+  - #ABOUT
+  This section introduces the company and highlights achievements.
+-->
+        <section class="section about has-before" aria-labelledby="about-label">
+          <div class="container">
+            <!-- Centers content and controls max width -->
+
+            <figure class="about-banner">
+              <!-- Image container for the about section -->
+              <img
+                src="./assets/images/about-banner.png"
+                width="540"
+                height="540"
+                loading="lazy"
+                alt="vehicle repair equipments"
+                class="w-100"
+              />
+            </figure>
+
+            <div class="about-content">
+              <!-- Wrapper for text content -->
+
+              <!-- Section subtitle with dark styling -->
+              <p class="section-subtitle :dark" id="about-label">About Us</p>
+
+              <!-- Main heading describing the company's quality commitment -->
+              <h2 class="h2 section-title">
+                We’re Committed to Delivering Quality
+              </h2>
+
+              <!-- Updated, clean, professional description text -->
+              <p class="section-text">
+                We provide reliable automotive services backed by skilled
+                technicians, advanced tools, and a strong focus on customer
+                satisfaction.
+              </p>
+
+              <!-- Second updated supporting text -->
+              <p class="section-text">
+                Our team ensures every vehicle receives precise care, delivering
+                results you can trust on every visit.
+              </p>
+
+              <!-- List of company achievements and statistics -->
+              <ul class="about-list">
+                <!-- Achievement 1 -->
+                <li class="about-item">
+                  <p>
+                    <strong class="display-1 strong">8K+</strong> Happy Clients
+                  </p>
+                </li>
+
+                <!-- Achievement 2 -->
+                <li class="about-item">
+                  <p>
+                    <strong class="display-1 strong">22+</strong> Instruments
+                  </p>
+                </li>
+
+                <!-- Achievement 3 -->
+                <li class="about-item">
+                  <p>
+                    <strong class="display-1 strong">50+</strong> Years in
+                    market
+                  </p>
+                </li>
+
+                <!-- Achievement 4 -->
+                <li class="about-item">
+                  <p>
+                    <strong class="display-1 strong">99%</strong> Projects
+                    completed
+                  </p>
+                </li>
+              </ul>
+              <!-- End of about-list -->
+            </div>
+            <!-- End of about-content -->
+          </div>
+          <!-- End of container -->
+        </section>
+        <!-- End of ABOUT section -->
+
+        <!-- 
+  - #WORK
+  This section showcases recent projects completed by the company.
+-->
+        <section class="section work" aria-labelledby="work-label">
+          <div class="container">
+            <!-- Centers content and limits width -->
+
+            <!-- Section subtitle styled for light background areas -->
+            <p class="section-subtitle :light" id="work-label">Our Work</p>
+
+            <!-- Main heading for recent projects -->
+            <h2 class="h2 section-title">Latest projects we have done</h2>
+
+            <!-- Horizontal scrollable list of project cards -->
+            <ul class="has-scrollbar">
+              <!-- PROJECT ITEM 1 -->
+              <li class="scrollbar-item">
+                <!-- Allows individual card scrolling -->
+                <div class="work-card">
+                  <!-- Wrapper for project card -->
+
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 350; --height: 406"
+                  >
+                    <img
+                      src="./assets/images/work-1.jpg"
+                      width="350"
+                      height="406"
+                      loading="lazy"
+                      alt="Engine Repair"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <!-- Text and button inside the card -->
+
+                    <p class="card-subtitle">Auto Repair</p>
+                    <!-- Category label -->
+
+                    <h3 class="h3 card-title">Engine Repair</h3>
+                    <!-- Project title -->
+
+                    <!-- Button linking to project details -->
+                    <a href="#" class="card-btn">
+                      <span class="material-symbols-rounded"
+                        >arrow_forward</span
+                      >
+                      <!-- Icon -->
+                    </a>
+                  </div>
+                  <!-- End of card-content -->
+                </div>
+                <!-- End of work-card -->
+              </li>
+
+              <!-- PROJECT ITEM 2 -->
+              <li class="scrollbar-item">
+                <div class="work-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 350; --height: 406"
+                  >
+                    <img
+                      src="./assets/images/work-2.jpg"
+                      width="350"
+                      height="406"
+                      loading="lazy"
+                      alt="Car Tyre change"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <p class="card-subtitle">Auto Repair</p>
+
+                    <h3 class="h3 card-title">Car Tyre change</h3>
+                    <!-- Project title -->
+
+                    <a href="#" class="card-btn">
+                      <span class="material-symbols-rounded"
+                        >arrow_forward</span
+                      >
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- PROJECT ITEM 3 -->
+              <li class="scrollbar-item">
+                <div class="work-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 350; --height: 406"
+                  >
+                    <img
+                      src="./assets/images/work-3.jpg"
+                      width="350"
+                      height="406"
+                      loading="lazy"
+                      alt="Battery Adjust"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <p class="card-subtitle">Auto Repair</p>
+
+                    <h3 class="h3 card-title">Battery Adjust</h3>
+                    <!-- Project title -->
+
+                    <a href="#" class="card-btn">
+                      <span class="material-symbols-rounded"
+                        >arrow_forward</span
+                      >
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <!-- End of scrollable project list -->
+          </div>
+          <!-- End of container -->
+        </section>
+        <!-- End of WORK section -->
+      </article>
+      <!-- Closing article wrapper -->
+    </main>
+    <!-- Closing main content wrapper -->
+
+    <!-- 
+  - #FOOTER
+  Footer section containing branding, social links, contact info, and shapes.
+-->
+    <footer class="footer">
+      <!-- Top part of the footer -->
+      <div class="footer-top section">
+        <div class="container">
+          <!-- Centers content and controls max width -->
+
+          <!-- FOOTER BRAND AREA -->
+          <div class="footer-brand">
+            <!-- Footer logo linking to homepage -->
+            <a href="#" class="logo">
+              <img
+                src="./assets/images/logo.png"
+                width="128"
+                height="63"
+                alt="autofix home"
+              />
+            </a>
+
+            <!-- Short footer description text -->
+            <p class="footer-text">
+              Providing trusted auto repair and maintenance services for every
+              vehicle.
+            </p>
+
+            <!-- Social media links list -->
+            <ul class="social-list">
+              <!-- Facebook -->
+              <li>
+                <a href="#" class="social-link">
+                  <img src="./assets/images/facebook.svg" alt="facebook" />
+                  <!-- Icon -->
+                </a>
+              </li>
+
+              <!-- Instagram -->
+              <li>
+                <a href="#" class="social-link">
+                  <img src="./assets/images/instagram.svg" alt="instagram" />
+                </a>
+              </li>
+
+              <!-- Twitter -->
+              <li>
+                <a href="#" class="social-link">
+                  <img src="./assets/images/twitter.svg" alt="twitter" />
+                </a>
+              </li>
+            </ul>
+            <!-- End social-list -->
+          </div>
+          <!-- End footer-brand -->
+
+          <!-- OPENING HOURS COLUMN -->
+          <ul class="footer-list">
+            <!-- Column heading -->
+            <li>
+              <p class="h3">Opening Hours</p>
+            </li>
+
+            <!-- Hours block 1 -->
+            <li>
+              <p class="p">Monday – Saturday</p>
+              <span class="span">12.00 – 14.45</span>
+            </li>
+
+            <!-- Hours block 2 -->
+            <li>
+              <p class="p">Sunday – Thursday</p>
+              <span class="span">17.30 – 00.00</span>
+            </li>
+
+            <!-- Hours block 3 -->
+            <li>
+              <p class="p">Friday – Saturday</p>
+              <span class="span">12.00 – 14.45</span>
+            </li>
+          </ul>
+          <!-- End opening hours list -->
+
+          <!-- CONTACT INFO COLUMN -->
+          <ul class="footer-list">
+            <!-- Column heading -->
+            <li>
+              <p class="h3">Contact Info</p>
+            </li>
+
+            <!-- Phone number item -->
+            <li>
+              <a href="tel:+01234567890" class="footer-link">
+                <span class="material-symbols-rounded">call</span>
+                <!-- Phone icon -->
+                <span class="span">+01 2 3456 7890</span>
+                <!-- Number -->
+              </a>
+            </li>
+
+            <!-- Email item -->
+            <li>
+              <a href="mailto:info@autofix.com" class="footer-link">
+                <span class="material-symbols-rounded">mail</span>
+                <!-- Email icon -->
+                <span class="span">info@autofix.com</span>
+              </a>
+            </li>
+
+            <!-- Address item -->
+            <li>
+              <address class="footer-link address">
+                <span class="material-symbols-rounded">location_on</span>
+                <!-- Location icon -->
+                <span class="span">
+                  21 King Street Melbourne, 3000, Australia
+                </span>
+              </address>
+            </li>
+          </ul>
+          <!-- End contact info list -->
+        </div>
+        <!-- End container -->
+
+        <!-- Decorative footer shape (animated) -->
+        <img
+          src="./assets/images/footer-shape-3.png"
+          width="637"
+          height="173"
+          loading="lazy"
+          alt="Shape"
+          class="shape shape-3 move-anim"
+        />
+      </div>
+      <!-- End footer-top -->
+
+      <!-- Bottom part of the footer -->
+      <div class="footer-bottom">
+        <div class="container">
+          <!-- Centers bottom content -->
+
+          <!-- Copyright text -->
+          <p class="copyright">Copyright 2025, All Rights Reserved.</p>
+
+          <!-- Decorative shape 2 -->
+          <img
+            src="./assets/images/footer-shape-2.png"
+            width="778"
+            height="335"
+            loading="lazy"
+            alt="Shape"
+            class="shape shape-2"
+          />
+
+          <!-- Large decorative red car (animated) -->
+          <img
+            src="./assets/images/footer-shape-1.png"
+            width="805"
+            height="652"
+            loading="lazy"
+            alt="Red Car"
+            class="shape shape-1 move-anim"
+          />
+        </div>
+        <!-- End container -->
+      </div>
+      <!-- End footer-bottom -->
+    </footer>
+    <!-- End footer -->
+
+    <!-- 
+  - custom js link
+  Loads the website's main JavaScript file
+-->
+    <script src="./assets/js/script.js"></script>
+  </body>
+  <!-- End of page body -->
+</html>
+<!-- End of HTML document -->

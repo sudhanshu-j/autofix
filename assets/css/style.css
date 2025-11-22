@@ -1,0 +1,1497 @@
+/*-----------------------------------*\
+  #CUSTOM PROPERTIES
+\*-----------------------------------*/
+
+:root {
+  /* Define a custom color for International Orange (engineering tone) */
+  --international-orange-engineering: hsl(1, 91%, 37%);
+  /* Define a soft blue-gray color (Cadet Blue variant) */
+  --cadet-blue-creyola: hsl(222, 14%, 69%);
+  /* Define a very dark blue color (Oxford Blue variant 1) */
+  --oxford-blue-1: hsl(222, 47%, 15%);
+  /* Define another dark blue color (Oxford Blue variant 2) */
+  --oxford-blue-2: hsl(222, 44%, 14%);
+  /* Define the darkest Oxford Blue variant */
+  --oxford-blue-3: hsl(222, 50%, 11%);
+  /* Define a medium gray color (Sonic Silver) */
+  --sonic-silver: hsl(0, 0%, 44%);
+  /* Define a deep blue color (Space Cadet) */
+  --space-cadet: hsl(222, 44%, 18%);
+  /* Define a light pink color (Pastel Pink) */
+  --pastel-pink: hsl(1, 53%, 75%);
+  /* Define a very dark black (Eerie Black) */
+  --eerie-black: hsl(0, 0%, 15%);
+  /* Define a light gray color for backgrounds and borders */
+  --light-gray: hsl(0, 0%, 80%);
+  /* Define pure white color */
+  --white: hsl(0, 0%, 100%);
+
+  /* Define the primary font family for headings */
+  --ff-chakra-petch: "Chakra Petch", sans-serif;
+  /* Define the primary font family for body text */
+  --ff-mulish: "Mulish", sans-serif;
+
+  /* Define font size scale from largest to smallest */
+  --fs-1: 3.5rem;
+  --fs-2: 3rem;
+  --fs-3: 2.4rem;
+  --fs-4: 1.8rem;
+  --fs-5: 1.4rem;
+  --fs-6: 1.2rem;
+
+  /* Define font weight values */
+  --fw-400: 400; /* normal */
+  --fw-600: 600; /* semi-bold */
+  --fw-700: 700; /* bold */
+
+  /* Define default padding for sections */
+  --section-padding: 60px;
+
+  /* Define a subtle box shadow */
+  --shadow: 0px 0px 100px 0px hsl(216, 9%, 90%);
+
+  /* Define border radius for pill-shaped elements */
+  --radius-pill: 100px;
+  /* Define border radius for perfectly circular elements */
+  --radius-circle: 50%;
+
+  /* Define a default transition for smooth effects */
+  --transition: 0.25s ease;
+  /* Define a custom cubic-bezier easing function */
+  --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+
+/*-----------------------------------*\
+  #RESET STYLES
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  /* Remove default margin and padding for all elements */
+  margin: 0;
+  padding: 0;
+  /* Ensure consistent box sizing */
+  box-sizing: border-box;
+}
+
+li {
+  /* Remove default list bullets */
+  list-style: none;
+}
+
+a,
+img,
+span,
+button {
+  /* Make inline elements behave like block for layout consistency */
+  display: block;
+}
+
+a {
+  /* Inherit text color and remove underline */
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  /* Ensure images scale proportionally */
+  height: auto;
+}
+
+button {
+  /* Remove default button styles */
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+address {
+  /* Remove italic style from addresses */
+  font-style: normal;
+}
+
+html {
+  /* Set default font for document */
+  font-family: var(--ff-mulish);
+  /* Set root font size to 10px for easy rem calculations */
+  font-size: 10px;
+  /* Enable smooth scrolling for anchors */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Set background color for the page */
+  background-color: var(--white);
+  /* Set default text color */
+  color: var(--sonic-silver);
+  /* Set base font size */
+  font-size: 1.6rem;
+  /* Set comfortable line height */
+  line-height: 1.5;
+}
+
+:focus-visible {
+  /* Offset focus outlines for accessibility */
+  outline-offset: 4px;
+}
+
+/* Scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px; /* Set width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(0, 0%, 98%); /* Light background for track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 80%); /* Gray color for thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 70%); /* Darker gray on hover */
+}
+
+/*-----------------------------------*\
+  #REUSABLE COMPONENT STYLES
+\*-----------------------------------*/
+
+.container {
+  /* Horizontal padding for layout consistency */
+  padding-inline: 16px;
+}
+
+.material-symbols-rounded {
+  /* Font settings for Material Icons */
+  --fs: 1em;
+  font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 40;
+  font-size: var(--fs);
+  width: 1em;
+  overflow: hidden; /* Hide overflow for icon */
+}
+
+.has-bg-image {
+  /* Ensure background images cover element fully */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+}
+
+.section-subtitle {
+  /* Limit width for subtitle */
+  max-width: max-content;
+  /* Use heading font */
+  font-family: var(--ff-chakra-petch);
+  /* Set font size */
+  font-size: var(--fs-5);
+  /* Semi-bold font weight */
+  font-weight: var(--fw-600);
+  /* Make text uppercase */
+  text-transform: uppercase;
+  /* Add spacing below subtitle */
+  margin-block-end: 12px;
+  /* Center align horizontally */
+  margin-inline: auto;
+}
+
+.section-subtitle::before {
+  /* Decorative bar before subtitle text */
+  content: "";
+  display: inline-block;
+  height: 15px;
+  width: 30px;
+  margin-block-end: -2px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.section-subtitle.\:dark {
+  /* Dark variant text color */
+  color: var(--white);
+}
+
+.section-subtitle.\:dark::before {
+  /* Dark variant decorative bar */
+  background-image: url("../images/text-bars-light.png");
+}
+
+.section-subtitle.\:light {
+  /* Light variant text color */
+  color: var(--international-orange-engineering);
+}
+
+.section-subtitle.\:light::before {
+  /* Light variant decorative bar */
+  background-image: url("../images/text-bars-dark.png");
+}
+
+.section-title {
+  /* Center all section titles */
+  text-align: center;
+}
+
+.h1,
+.h2,
+.h3,
+.display-1 {
+  /* Use heading font for all major headings */
+  font-family: var(--ff-chakra-petch);
+  font-weight: var(--fw-700);
+  text-transform: uppercase; /* Make uppercase */
+}
+
+.display-1 {
+  /* Largest heading style */
+  font-size: var(--fs-1);
+}
+
+.h1 {
+  /* H1 heading color and size */
+  color: var(--white);
+  font-size: var(--fs-2);
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.h2,
+.h3 {
+  /* H2/H3 colors and line height */
+  color: var(--eerie-black);
+  font-weight: var(--fw-600);
+  line-height: 1.2;
+}
+
+.h2 {
+  /* H2 font size */
+  font-size: var(--fs-3);
+}
+
+.h3 {
+  /* H3 font size */
+  font-size: var(--fs-4);
+}
+
+.btn {
+  /* Base button styles */
+  background-color: var(--international-orange-engineering);
+  color: var(--white);
+  max-width: max-content; /* Limit width to content */
+  font-family: var(--ff-chakra-petch);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon/text */
+  padding: 12px 20px;
+  border: 1px solid transparent; /* Invisible border for hover effect */
+  border-radius: var(--radius-pill); /* Rounded pill shape */
+  transition: var(--transition); /* Smooth hover transition */
+  will-change: transform; /* Optimize for animations */
+}
+
+.btn:is(:hover, :focus-visible) {
+  /* Hover/focus effects for button */
+  transform: translateY(-5px); /* Slight upward movement */
+  background-color: var(--oxford-blue-3); /* Darken background */
+  border-color: var(--white); /* Add visible border */
+}
+
+.move-anim {
+  /* Apply infinite vertical movement animation */
+  animation: moving 2s ease-in-out infinite alternate;
+}
+
+@keyframes moving {
+  0% {
+    /* Start position */
+    transform: translateY(0);
+  }
+  100% {
+    /* End position 10px down */
+    transform: translateY(10px);
+  }
+}
+
+.section {
+  /* Apply consistent vertical padding to sections */
+  padding-block: var(--section-padding);
+}
+
+.btn-link {
+  /* Style links to look like buttons */
+  font-family: var(--ff-chakra-petch);
+  text-transform: uppercase;
+  color: var(--international-orange-engineering);
+  font-weight: var(--fw-700);
+}
+
+.w-100 {
+  /* Utility class for full width */
+  width: 100%;
+}
+
+.img-holder {
+  /* Container for images with fixed aspect ratio */
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray); /* Placeholder background */
+  overflow: hidden; /* Hide overflowing parts of image */
+}
+
+.img-cover {
+  /* Ensure image covers container entirely */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.has-scrollbar {
+  /* Horizontal scroll container */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  overflow-x: auto; /* Enable horizontal scroll */
+  scroll-snap-type: inline mandatory; /* Snap items into view */
+  padding-block-end: 20px;
+}
+
+.scrollbar-item {
+  /* Each item in horizontal scroll */
+  min-width: 100%; /* Fill container width */
+  scroll-snap-align: start; /* Snap to start */
+}
+
+.has-scrollbar::-webkit-scrollbar {
+  /* Horizontal scrollbar width */
+  height: 16px;
+}
+
+.has-scrollbar::-webkit-scrollbar-track {
+  /* Track background for horizontal scrollbar */
+  background-color: var(--pastel-pink);
+  border-radius: 20px; /* Rounded track */
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  /* Scrollbar handle */
+  background-color: var(--international-orange-engineering);
+  border-radius: 20px;
+  border: 3px solid var(--pastel-pink); /* Add spacing around thumb */
+}
+
+.has-scrollbar::-webkit-scrollbar-button {
+  /* Scrollbar buttons width (if present) */
+  width: 15%;
+}
+
+/*-----------------------------------*\
+  #HEADER STYLES
+\*-----------------------------------*/
+
+.header .btn {
+  /* Hide any button inside header by default */
+  display: none;
+}
+
+.header {
+  /* Position header at the top of the page */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Make header span full width */
+  width: 100%;
+  /* Add padding around header */
+  padding: 40px 15px;
+  padding-inline-start: 40px; /* extra left padding for layout */
+  z-index: 4; /* Ensure header stays on top */
+}
+
+.header .container {
+  /* Use flexbox to align header content */
+  display: flex;
+  justify-content: space-between; /* space between logo and nav */
+  align-items: center; /* vertically center items */
+}
+
+.logo img {
+  /* Set logo width to 100px */
+  width: 100px;
+}
+
+.nav-toggle-icon {
+  /* Hamburger icon bars dimensions and color */
+  width: 30px;
+  height: 2px;
+  background-color: var(--white);
+  /* Smooth transition for hover/active animations */
+  transition: var(--transition);
+}
+
+.nav-toggle-icon:not(:last-child) {
+  /* Add spacing between hamburger bars except last one */
+  margin-block-end: 7px;
+}
+
+.nav-toggle-btn.active .icon-2 {
+  /* Hide middle bar when hamburger is active */
+  opacity: 0;
+  transform: translateX(-10px); /* move slightly left */
+}
+
+.nav-toggle-btn.active .icon-1 {
+  /* Rotate top bar to form X shape */
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle-btn.active .icon-3 {
+  /* Rotate bottom bar to form X shape */
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+.navbar {
+  /* Position navbar for dropdown menu */
+  position: absolute;
+  top: 100px; /* below header */
+  right: 30px;
+  /* Set navbar background color */
+  background-color: var(--international-orange-engineering);
+  min-width: max-content; /* shrink-to-fit content */
+  width: 30%; /* default width */
+  transform: translateY(20px); /* initial vertical offset for animation */
+  opacity: 0; /* initially invisible */
+  visibility: hidden; /* prevent clicks */
+  transition: 0.25s var(--cubic-out); /* smooth animation */
+  z-index: 2; /* behind header */
+}
+
+.navbar.active {
+  /* Show navbar when active */
+  transform: translateY(0); /* move into place */
+  opacity: 1; /* fully visible */
+  visibility: visible; /* allow interaction */
+  transition-duration: 0.5s; /* slower transition for entrance */
+}
+
+.navbar-link {
+  /* Navbar link font styling */
+  font-family: var(--ff-chakra-petch);
+  font-size: var(--fs-5);
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 10px 20px; /* space around link text */
+  transition: var(--transition); /* smooth hover effect */
+}
+
+.navbar-link:is(:hover, :focus-visible) {
+  /* Hover/focus styles for navbar links */
+  background-color: var(--white); /* light background */
+  color: var(--international-orange-engineering); /* contrast text */
+}
+
+/*-----------------------------------*\
+  #HERO SECTION
+\*-----------------------------------*/
+
+.hero {
+  /* Relative positioning for overlay elements */
+  position: relative;
+  /* Add top padding for spacing */
+  padding-block-start: calc(var(--section-padding) + 70px);
+  /* Center text */
+  text-align: center;
+  z-index: 1; /* stack order */
+  overflow: hidden; /* hide overflowing elements */
+}
+
+.hero .container {
+  /* Use grid layout for hero content */
+  display: grid;
+  gap: 30px; /* spacing between grid items */
+}
+
+.hero .section-subtitle {
+  /* Override uppercase for hero subtitle */
+  text-transform: unset;
+}
+
+.hero .section-text {
+  /* White text for hero paragraph */
+  color: var(--white);
+  /* Add vertical spacing */
+  margin-block: 14px 18px;
+}
+
+.hero .btn {
+  /* Center button in hero */
+  margin-inline: auto;
+}
+
+.hero-banner {
+  /* Maintain aspect ratio for hero banner */
+  aspect-ratio: var(--width) / var(--height);
+}
+
+.hero-banner img {
+  /* Position hero image inside container */
+  position: absolute;
+  bottom: 0; /* align to bottom */
+  right: 0; /* align to right */
+  width: 90%; /* almost full width */
+  z-index: -1; /* behind hero content */
+}
+
+/*-----------------------------------*\
+  #SERVICE SECTION
+\*-----------------------------------*/
+
+.service-banner {
+  /* Hide service banner by default */
+  display: none;
+}
+
+.service {
+  /* Center align all service content */
+  text-align: center;
+}
+
+.service-list {
+  /* Remove gap and spacing */
+  gap: 0;
+  margin-block-end: 40px; /* bottom spacing after list */
+}
+
+.service-card .card-icon {
+  /* Center icon in card and limit width */
+  max-width: max-content;
+  margin-inline: auto;
+  margin-block-end: 24px; /* spacing below icon */
+}
+
+.service-card .card-text {
+  /* Set line height for text readability */
+  line-height: 1.2;
+  margin-block: 8px; /* vertical spacing */
+}
+
+.service .btn {
+  /* Center service button */
+  margin-inline: auto;
+}
+
+/*-----------------------------------*\
+  #ABOUT SECTION
+\*-----------------------------------*/
+
+.about {
+  /* Background color and white text */
+  background-color: var(--space-cadet);
+  color: var(--white);
+  text-align: center;
+}
+
+.about .container {
+  /* Use grid layout and spacing */
+  display: grid;
+  gap: 50px; /* space between items */
+}
+
+.about .section-title {
+  /* Ensure section title is white */
+  color: var(--white);
+}
+
+.about .section-text:nth-child(3) {
+  /* Specific margin for third paragraph */
+  margin-block: 12px 8px;
+}
+
+.about-list {
+  /* Grid layout for about items */
+  display: grid;
+  gap: 25px; /* spacing between items */
+  margin-block-start: 25px; /* top spacing */
+}
+
+.about-item {
+  /* Card background and padding */
+  background-color: var(--oxford-blue-2);
+  padding: 40px 20px;
+  transition: var(--transition); /* smooth hover animation */
+}
+
+.about-item:hover {
+  /* Hover effect for about card */
+  background-color: var(--international-orange-engineering); /* change color */
+  transform: translateY(-8px); /* lift card slightly */
+}
+
+.about-item .strong {
+  /* Strong text block formatting */
+  display: block;
+  line-height: 1.1; /* tighter line spacing */
+}
+
+/*-----------------------------------*\
+  #WORK SECTION
+\*-----------------------------------*/
+
+.work .container {
+  /* Remove horizontal padding for work section container */
+  padding-inline: 0;
+}
+
+.work .section-title {
+  /* Add spacing below section title */
+  margin-block-end: 24px;
+}
+
+.work-card {
+  /* Position work card relative for absolute children positioning */
+  position: relative;
+}
+
+.work-card .card-content {
+  /* White background for card content */
+  background-color: var(--white);
+  /* Limit content width to 90% of container */
+  max-width: 90%;
+  /* Padding inside the card */
+  padding: 30px 10px;
+  /* Pull card up to overlap work image/banner */
+  margin-block-start: -60px;
+  /* Center horizontally */
+  margin-inline: auto;
+  position: relative;
+  /* Center text inside card */
+  text-align: center;
+  /* Apply subtle shadow for depth */
+  box-shadow: var(--shadow);
+}
+
+.work-card .card-subtitle {
+  /* Subtitle uses heading font */
+  font-family: var(--ff-chakra-petch);
+  /* Uppercase for emphasis */
+  text-transform: uppercase;
+  /* Orange color for subtitle */
+  color: var(--international-orange-engineering);
+  /* Bold font weight */
+  font-weight: var(--fw-700);
+  /* Spacing below subtitle */
+  margin-block-end: 5px;
+}
+
+.work-card .card-title {
+  /* Space below card title */
+  margin-block-end: 10px;
+}
+
+.work-card .card-btn {
+  /* Circular button styling */
+  background-color: var(--international-orange-engineering);
+  color: var(--white);
+  font-size: 2rem; /* Icon or text size */
+  margin-inline: auto; /* center horizontally */
+  width: 38px; /* button width */
+  height: 38px; /* button height */
+  display: grid; /* grid for centering content */
+  place-items: center; /* center icon/text */
+  border-radius: var(--radius-circle); /* perfect circle */
+}
+
+/*-----------------------------------*\
+  #FOOTER SECTION
+\*-----------------------------------*/
+
+.footer {
+  /* Light blue-gray text for footer */
+  color: var(--cadet-blue-creyola);
+}
+
+.footer .shape {
+  /* Hide decorative shapes in footer */
+  display: none;
+}
+
+.footer-top {
+  /* Dark background for top part of footer */
+  background-color: var(--space-cadet);
+}
+
+.footer-top .container {
+  /* Grid layout for footer top content */
+  display: grid;
+  gap: 40px; /* spacing between grid items */
+}
+
+.footer-text {
+  /* Vertical spacing for footer text */
+  margin-block: 18px 20px;
+}
+
+.social-list {
+  /* Horizontal layout for social icons */
+  display: flex;
+  gap: 8px; /* spacing between icons */
+}
+
+.social-link {
+  /* Circular background for social icon links */
+  background-color: var(--oxford-blue-3);
+  padding: 14px;
+  border-radius: var(--radius-circle);
+  transition: var(--transition); /* smooth hover effect */
+}
+
+.social-link:is(:hover, :focus-visible) {
+  /* Hover effect: orange background and lift */
+  background-color: var(--international-orange-engineering);
+  transform: translateY(-5px);
+}
+
+.footer .h3 {
+  /* White footer heading with spacing below */
+  color: var(--white);
+  margin-block-end: 18px;
+}
+
+.footer-list .p {
+  /* Footer paragraph styling */
+  color: var(--white);
+  font-weight: var(--fw-400);
+  margin-block-end: 7px; /* spacing below paragraph */
+}
+
+.footer-list li:not(:first-child) {
+  /* Add top margin to all list items except first */
+  margin-block-start: 16px;
+}
+
+.footer-link {
+  /* Horizontal flex layout for links with icons */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-link:is(:hover, :focus-visible) {
+  /* Hover/focus color change for links */
+  color: var(--international-orange-engineering);
+}
+
+.footer-link .material-symbols-rounded {
+  /* Ensure icon does not shrink and has size/color */
+  flex-shrink: 0;
+  font-size: 1.8rem;
+  color: var(--international-orange-engineering);
+}
+
+.footer-bottom {
+  /* Dark background for bottom part of footer */
+  background-color: var(--oxford-blue-1);
+  padding-block: 20px; /* vertical padding */
+}
+
+.copyright {
+  /* Centered small text for copyright */
+  text-align: center;
+  font-size: var(--fs-6);
+}
+
+/*-----------------------------------*\
+  #MEDIA QUERIES (RESPONSIVE)
+\*-----------------------------------*/
+
+/* For screens wider than 575px */
+@media (min-width: 575px) {
+  /*-----------------------------------*\
+    #CUSTOM PROPERTIES (TYPOGRAPHY ADJUSTMENTS)
+  \*-----------------------------------*/
+
+  :root {
+    /* Adjust font sizes for medium/large screens */
+    --fs-2: 4rem; /* H1 size */
+    --fs-3: 2.8rem; /* H2 size */
+    --fs-4: 2rem; /* H3 size */
+  }
+
+  /*-----------------------------------*\
+    #REUSED STYLES (CONTAINER & TYPOGRAPHY)
+  \*-----------------------------------*/
+
+  .container {
+    /* Limit container width and center */
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .section-subtitle {
+    /* Slightly larger subtitle */
+    --fs-5: 1.6rem;
+  }
+
+  .h2 {
+    /* Make H2 headings bold */
+    font-weight: var(--fw-700);
+  }
+
+  /*-----------------------------------*\
+    #HERO SECTION
+  \*-----------------------------------*/
+
+  .hero .container {
+    /* Remove max-width restriction */
+    max-width: unset;
+  }
+
+  .hero-content {
+    /* Center hero content and limit width */
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .hero .section-text {
+    /* Increase hero paragraph font size */
+    font-size: 1.8rem;
+  }
+
+  /*-----------------------------------*\
+    #SERVICE SECTION
+  \*-----------------------------------*/
+
+  .service .section-title {
+    /* Add spacing below title */
+    margin-block-end: 30px;
+  }
+
+  .service-list {
+    /* Two-column grid layout for services */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-block-end: 40px;
+  }
+
+  /*-----------------------------------*\
+    #ABOUT SECTION
+  \*-----------------------------------*/
+
+  .about-list {
+    /* Two-column grid for about items */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .about-item {
+    /* Reduce vertical padding on larger screens */
+    padding-block: 20px;
+  }
+
+  /*-----------------------------------*\
+    #WORK SECTION
+  \*-----------------------------------*/
+
+  .scrollbar-item {
+    /* Show 2 items per row in horizontal scroll */
+    min-width: calc(50% - 15px);
+  }
+
+  /*-----------------------------------*\
+    #FOOTER SECTION
+  \*-----------------------------------*/
+
+  .footer-top {
+    /* Allow shapes/elements to overflow for effect */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-top .container {
+    /* Two-column grid for footer top content */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer .shape-3 {
+    /* Show decorative shape in footer */
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+  }
+}
+
+/**
+ * MEDIA QUERIES FOR SCREENS LARGER THAN 768px
+ */
+@media (min-width: 768px) {
+  /*-----------------------------------*\
+    #CUSTOM PROPERTIES
+  \*-----------------------------------*/
+  :root {
+    /* Adjust font sizes for medium-large screens */
+    --fs-1: 4rem; /* display-1 / largest headings */
+    --fs-2: 5rem; /* h1 headings */
+    --fs-3: 3.4rem; /* h2 headings */
+  }
+
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  .container,
+  .hero-content {
+    /* Limit width for content containers */
+    max-width: 720px;
+  }
+
+  .btn {
+    /* Larger buttons for medium screens */
+    padding: 16px 32px;
+  }
+
+  .section-subtitle {
+    /* Slightly larger subtitle font size */
+    --fs-5: 1.8rem;
+  }
+
+  .section-title:not(.h1) {
+    /* Constrain section titles and center them */
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  /*-----------------------------------*\
+    #HERO SECTION
+  \*-----------------------------------*/
+  .hero {
+    /* Increase section padding for larger screens */
+    --section-padding: 120px;
+  }
+
+  .hero .section-text {
+    /* Add more space below hero paragraph */
+    margin-block-end: 30px;
+  }
+
+  /*-----------------------------------*\
+    #SERVICE SECTION
+  \*-----------------------------------*/
+  .service-banner {
+    /* Show service banner */
+    display: block;
+    position: relative;
+  }
+
+  .service-list {
+    /* 3-column grid for services */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-banner img {
+    /* Position service banner image */
+    position: absolute;
+    top: 0;
+    left: -25%;
+    margin-block-start: 15%;
+    width: 150%;
+    transform-origin: top; /* scale from top */
+  }
+
+  /*-----------------------------------*\
+    #ABOUT SECTION
+  \*-----------------------------------*/
+  .about-banner {
+    /* Ensure banner has natural width */
+    max-width: max-content;
+  }
+
+  .about-banner,
+  .about .section-text {
+    /* Center banner and section text */
+    margin-inline: auto;
+  }
+
+  .about .section-text {
+    /* Limit text width for readability */
+    max-width: 520px;
+  }
+
+  /*-----------------------------------*\
+    #FOOTER SECTION
+  \*-----------------------------------*/
+  .footer-top .container {
+    /* Adjust columns in footer top */
+    grid-template-columns: 1fr 0.9fr 0.9fr;
+  }
+
+  .copyright {
+    /* Slightly larger font for copyright */
+    --fs-6: 1.4rem;
+  }
+}
+
+/**
+ * MEDIA QUERIES FOR SCREENS LARGER THAN 992px
+ */
+@media (min-width: 992px) {
+  /*-----------------------------------*\
+    #CUSTOM PROPERTIES
+  \*-----------------------------------*/
+  :root {
+    /* Typography adjustments for large screens */
+    --fs-2: 4.4rem;
+    --fs-3: 3.8rem;
+    --fs-4: 2.2rem;
+
+    /* Section spacing adjustments */
+    --section-padding: 100px;
+  }
+
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  .container {
+    /* Wider content container for large screens */
+    max-width: 960px;
+  }
+
+  .section-text,
+  .card-text {
+    /* Increase text size for readability */
+    font-size: 1.8rem;
+  }
+
+  /*-----------------------------------*\
+    #HEADER
+  \*-----------------------------------*/
+  .nav-toggle-btn {
+    /* Hide mobile menu toggle on large screens */
+    display: none;
+  }
+
+  .header .container {
+    /* Add spacing between header items */
+    gap: 30px;
+  }
+
+  .navbar,
+  .navbar.active {
+    /* Reset navbar styles for large screens */
+    all: unset;
+    display: block;
+    margin-inline-start: auto; /* push navbar to right */
+  }
+
+  .navbar-list {
+    /* Horizontal navbar layout */
+    display: flex;
+  }
+
+  .navbar-link {
+    /* Reset link positioning and size */
+    position: relative;
+    font-size: unset;
+  }
+
+  .navbar-link:is(:hover, :focus-visible) {
+    /* Remove background and ensure text remains white */
+    background: none;
+    color: var(--white);
+  }
+
+  .navbar-link::after {
+    /* Decorative image below link, hidden by default */
+    content: url("../images/nav-before-img.png");
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  .navbar-link:is(:hover, :focus-visible)::after {
+    /* Show decorative image on hover/focus */
+    opacity: 1;
+  }
+
+  .header .btn {
+    /* Show header button on large screens */
+    display: flex;
+    padding: 12px 24px;
+    font-size: var(--fs-5);
+  }
+
+  /*-----------------------------------*\
+    #HERO SECTION
+  \*-----------------------------------*/
+  .hero {
+    /* Left-align hero content and add bottom padding */
+    text-align: left;
+    padding-block-end: 80px;
+  }
+
+  .hero .container {
+    /* Two-column layout for hero text and image */
+    max-width: 960px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero :is(.section-subtitle, .btn) {
+    /* Reset horizontal margins */
+    margin-inline: 0;
+  }
+
+  .hero .section-title {
+    /* Left-align section title */
+    text-align: left;
+  }
+
+  .hero-banner img {
+    /* Reduce hero image width */
+    width: 55%;
+  }
+
+  /*-----------------------------------*\
+    #SERVICE SECTION
+  \*-----------------------------------*/
+  .service-card .card-text {
+    /* Padding and spacing adjustments for service cards */
+    padding-inline: 25px;
+    line-height: 1.45;
+    margin-block-end: 15px;
+  }
+
+  .service-list li:nth-child(-2n + 3) {
+    /* Add top margin for first 3 service items */
+    margin-block-start: 90px;
+  }
+
+  .service-list li:nth-child(4) {
+    /* Add right margin for fourth item */
+    margin-inline-end: 60px;
+  }
+
+  .service-list li:nth-child(6) {
+    /* Add left margin for sixth item */
+    margin-inline-start: 60px;
+  }
+
+  .service-banner img {
+    /* Position and scale service banner image */
+    left: -55%;
+    margin-block-start: -30%;
+    width: 210%;
+  }
+
+  /*-----------------------------------*\
+    #ABOUT SECTION
+  \*-----------------------------------*/
+  .about {
+    /* Ensure about section stacks properly */
+    position: relative;
+    z-index: 1;
+  }
+
+  .about,
+  .about .section-title {
+    /* Left-align about content */
+    text-align: left;
+  }
+
+  .about .container {
+    /* Two-column layout for about content */
+    grid-template-columns: 1fr 0.75fr;
+    gap: 30px;
+  }
+
+  .about .section-subtitle {
+    /* Remove horizontal margins */
+    margin-inline: 0;
+  }
+
+  .about-banner,
+  .about-banner .w-100 {
+    /* Center about banner horizontally */
+    margin-inline: auto 0;
+  }
+
+  .about-banner .w-100 {
+    /* Restrict banner width */
+    width: 40%;
+  }
+
+  .about-item {
+    /* Center text inside about items */
+    text-align: center;
+  }
+
+  .about::before {
+    /* Decorative left-side image for about section */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/about-abs-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    z-index: -1; /* behind content */
+  }
+
+  /*-----------------------------------*\
+    #WORK SECTION
+  \*-----------------------------------*/
+  .has-scrollbar {
+    /* Remove horizontal scroll on large screens */
+    overflow-x: visible;
+  }
+
+  .scrollbar-item {
+    /* Three items per row in work carousel */
+    min-width: calc(33.33% - 20px);
+  }
+}
+
+/**
+ * MEDIA QUERIES FOR SCREENS LARGER THAN 1200px
+ */
+@media (min-width: 1200px) {
+  /*-----------------------------------*\
+    #CUSTOM PROPERTIES
+  \*-----------------------------------*/
+  :root {
+    /* Adjust typography for extra-large screens */
+    --fs-2: 5rem; /* h1 headings */
+    --fs-3: 4.6rem; /* h2 headings */
+  }
+
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  .container,
+  .hero .container {
+    /* Expand container width for large screens */
+    max-width: 1140px;
+  }
+
+  .btn {
+    /* Make buttons larger for desktop screens */
+    padding: 18px 36px;
+  }
+
+  .btn .material-symbols-rounded {
+    /* Adjust icon size inside buttons */
+    --fs: 1.3em;
+  }
+
+  /*-----------------------------------*\
+    #HEADER
+  \*-----------------------------------*/
+  .header {
+    /* Reduce top/bottom padding for header */
+    padding-block: 25px;
+  }
+
+  .logo img {
+    /* Increase logo size */
+    width: 128px;
+  }
+
+  .header .btn {
+    /* Adjust header button size and padding */
+    font-size: unset;
+    padding-block: 15px;
+  }
+
+  /*-----------------------------------*\
+    #HERO SECTION
+  \*-----------------------------------*/
+  .hero {
+    /* Increase vertical spacing in hero */
+    padding-block: 250px 180px;
+  }
+
+  .hero .container {
+    /* Adjust grid columns for hero layout */
+    grid-template-columns: 1fr 0.9fr;
+  }
+
+  .hero .section-text {
+    /* Adjust font size and padding for hero paragraph */
+    font-size: 2rem;
+    padding-inline-end: 120px;
+  }
+
+  .hero-banner img {
+    /* Increase hero image width */
+    width: 70%;
+  }
+
+  /*-----------------------------------*\
+    #SERVICE SECTION
+  \*-----------------------------------*/
+  .service .section-title {
+    /* Constrain service title width */
+    max-width: 700px;
+  }
+
+  .service-list {
+    /* Add bottom margin to service list */
+    margin-block-end: 70px;
+  }
+
+  .service-list li:nth-child(2) .card-text {
+    /* Add padding for second service card text */
+    padding-inline: 50px;
+  }
+
+  .service-list li:nth-child(-2n + 3) {
+    /* Add top margin to first three items */
+    margin-block-start: 110px;
+  }
+
+  .service-list li:is(:nth-child(1), :nth-child(6)) {
+    /* Add left margin to first and sixth items */
+    margin-inline-start: 75px;
+  }
+
+  .service-list li:is(:nth-child(3), :nth-child(4)) {
+    /* Add right margin to third and fourth items */
+    margin-inline-end: 75px;
+  }
+
+  .service-banner img {
+    /* Adjust banner image width and position */
+    width: max-content;
+    left: -41%;
+  }
+
+  /*-----------------------------------*\
+    #WORK SECTION
+  \*-----------------------------------*/
+  .work-card .card-btn {
+    /* Enlarge work card button size */
+    font-size: 2.4rem;
+    width: 55px;
+    height: 55px;
+  }
+
+  /*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+  .footer-top {
+    /* Add extra vertical padding to top footer */
+    padding-block: 150px;
+  }
+
+  .footer-top .container {
+    /* Add left padding to top footer container */
+    padding-inline-start: 25%;
+  }
+
+  .footer-bottom {
+    /* Adjust bottom footer padding and stacking */
+    position: relative;
+    padding-block: 30px;
+    z-index: 1;
+  }
+
+  .footer :is(.shape-1, .shape-2) {
+    /* Show decorative shapes in footer */
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    pointer-events: none;
+    z-index: -1; /* behind content */
+  }
+
+  .footer .shape-1 {
+    /* Position first decorative shape */
+    left: -100px;
+  }
+
+  .footer .shape-2 {
+    /* Position second decorative shape */
+    left: -50px;
+  }
+}
+
+/**
+ * MEDIA QUERIES FOR SCREENS LARGER THAN 1400px
+ */
+@media (min-width: 1400px) {
+  /*-----------------------------------*\
+    #CUSTOM PROPERTIES
+  \*-----------------------------------*/
+  :root {
+    /* Adjust typography and spacing for ultra-wide screens */
+    --fs-2: 6rem; /* h1 headings */
+    --section-padding: 140px; /* general section vertical padding */
+  }
+
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  :is(.header, .hero) .container {
+    /* Expand header and hero container width */
+    max-width: 1280px;
+  }
+
+  .section-subtitle::before {
+    /* Adjust decorative line for subtitles */
+    height: 20px;
+    margin-inline-end: 5px;
+  }
+
+  /*-----------------------------------*\
+    #HEADER
+  \*-----------------------------------*/
+  .header .btn {
+    /* Increase padding for header button */
+    padding: 18px 36px;
+  }
+
+  /*-----------------------------------*\
+    #HERO SECTION
+  \*-----------------------------------*/
+  .hero {
+    /* Extra vertical padding for ultra-wide hero */
+    padding-block: 280px;
+  }
+
+  .hero .section-text {
+    /* Reduce right padding for hero paragraph */
+    padding-inline-end: 90px;
+  }
+
+  .hero-banner img {
+    /* Slightly larger hero image width */
+    width: 75%;
+  }
+
+  /*-----------------------------------*\
+    #ABOUT SECTION
+  \*-----------------------------------*/
+  .about::before {
+    /* Increase width of decorative background image */
+    width: 55%;
+  }
+
+  .about-banner .w-100 {
+    /* Increase width of about banner image */
+    width: 50%;
+  }
+
+  /*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+  .footer-top .container {
+    /* Reduce left padding for extra-wide footer */
+    padding-inline-start: 20%;
+  }
+}
