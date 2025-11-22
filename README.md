@@ -36,7 +36,7 @@
 
 ## 🌐 Demo
 
-You can view the live demo of **Autofix** [here](#). 🎉
+You can view the live demo of **Autofix** [here](#https://autofix-services.netlify.app/). 🎉
 
 ---
 
