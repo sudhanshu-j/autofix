@@ -167,8 +167,7 @@ Autofix/
 │   └── script.js          # Navbar toggle & interactive scripts ⚡
 ├── images/
 │   └── ...                # Banner, icons, and decorative images 🖼️
-├── README.md              # Project documentation 📄
-└── LICENSE                # License file 📜
+└── README.md              # Project documentation 📄             
 ```
 
 ---
